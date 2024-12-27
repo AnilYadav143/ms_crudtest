@@ -8,33 +8,32 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Product</title>
+    <title>Import Export</title>
   </head>
   <body>
     <div class="container mt-4">
         @include('header')
         <div class="card mt-4">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Create Product</h5>
-                <a href="{{ route('products.index') }}" class="btn btn-primary">Product List</a>
+                <h5 class="mb-0">Import /Export  Users</h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+                <div>
+                    <!-- Export Button -->
                     <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" name="title" id="title" class="form-control" required>
+                        <a href="{{ route('users.export') }}" class="btn btn-success">Export Users</a>
                     </div>
+
+                    <!-- Import Form -->
                     <div class="mb-3">
-                        <label for="price" class="form-label">Price</label>
-                        <input type="number" name="price" id="price" class="form-control" required>
+                        <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data" class="d-inline">
+                            @csrf
+                            <input type="file" name="file" class="form-control d-inline-block" style="width: auto;" required>
+                            <button type="submit" class="btn btn-primary">Import Users</button>
+                        </form>
                     </div>
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Image</label>
-                        <input type="file" name="image" id="image" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Save</button>
-                </form>
+                </div>
+
             </div>
         </div>
     </div>

@@ -12,18 +12,9 @@
   </head>
   <body>
     <div class="container mt-4">
-        <div class="card">
-            {{-- <div class="d-flex justify-content-between mb-3">
+        @include('header')
+        <div class="card mt-4">
 
-                <div>
-                    <a href="{{ route('products.export') }}" class="btn btn-success">Export Products</a>
-                    <form action="{{ route('products.import') }}" method="POST" enctype="multipart/form-data" class="d-inline">
-                        @csrf
-                        <input type="file" name="file" class="form-control d-inline-block" style="width: auto;" required>
-                        <button type="submit" class="btn btn-primary">Import Products</button>
-                    </form>
-                </div>
-            </div> --}}
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">Product List</h5>
                 <a href="{{ route('products.create') }}" class="btn btn-primary">Add Product</a>
